@@ -31,8 +31,3 @@ resource "aws_lb_target_group" "this" {
     create_before_destroy = true
   }
 }
-
-resource "aws_autoscaling_attachment" "this" {
-  autoscaling_group_name = aws_autoscaling_group.this.id
-  alb_target_group_arn   = aws_lb_target_group.this.arn
-}

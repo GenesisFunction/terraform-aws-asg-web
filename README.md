@@ -1,5 +1,7 @@
 # asg-web
-asg-web makes an auto-scaling group and related scaling policies, as well as a target group which can be associated with a load balancer.
+asg-web makes an auto-scaling group, and related scaling policies, as well as a target group which can be associated with a load balancer.
+
+This module has the ability to provision the ASG using a nested CloudFormation stack. This can be especially helpful if you want to do rolling AMI upgrades using an immutable application AMI (made with something like Packer for instance).
 
 TODO:
 - Handle additional EBS Volumes beyond the root volume
@@ -36,6 +38,7 @@ module "asg-web" {
   version = "0.1.0"
   # source  = "github.com/GenesisFunction/terraform-aws-asg-web"
 
+  #asg_cloudformation = true
   
   asg_name         = "${var.name_prefix}-app${local.name_suffix}"
   ami_id = "${data.aws_ami.my_ami.id}"

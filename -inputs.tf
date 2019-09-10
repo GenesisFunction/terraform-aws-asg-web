@@ -3,6 +3,12 @@ variable "asg_name" {
   type        = string
 }
 
+variable "asg_cloudformation" {
+  description = "true/false to deploy the ASG using a nested CloudFormation. This is useful when doing Rolling ASG updates with immutable AMIs. Default is False"
+  type        = bool
+  default     = false
+}
+
 variable "asg_min" {
   description = "Minimum number of ASG Nodes"
   type        = number
