@@ -1,9 +1,15 @@
+locals {
+  asg_tags = merge(var.input_tags, {
+    Name = var.asg_name
+  })
+}
+
 resource "null_resource" "asg_tags" {
-  count = length(keys(merge(var.input_tags, {})))
+  count = length(keys(local.asg_tags))
 
   triggers = {
-    Key   = element(keys(var.input_tags), count.index)
-    Value = element(values(var.input_tags), count.index)
+    Key   = element(keys(local.asg_tags), count.index)
+    Value = element(values(local.asg_tags), count.index)
     PropagateAtLaunch = "true"
   }
 }
