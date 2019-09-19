@@ -13,6 +13,7 @@ resource "aws_cloudformation_stack" "this" {
         "Cooldown": 300,
         "HealthCheckType": "EC2",
         "HealthCheckGracePeriod": 0,
+        "TargetGroupARNs": ["${aws_lb_target_group.this.arn}"],
         "LaunchTemplate": {
           "LaunchTemplateId" : "${aws_launch_template.this.id}",
           "Version" : "${aws_launch_template.this.latest_version}"
