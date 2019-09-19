@@ -35,7 +35,7 @@ data "aws_ami" "my_ami" {
 
 module "asg-web" {
   source  = "GenesisFunction/asg-web/aws"
-  version = "1.0.1"
+  version = "1.0.2"
   # source  = "github.com/GenesisFunction/terraform-aws-asg-web"
 
   #asg_cloudformation = true
