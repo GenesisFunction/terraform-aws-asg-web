@@ -22,7 +22,7 @@ resource "aws_autoscaling_group" "this" {
   }
 
   dynamic "tag" {
-    for_each = var.input_tags
+    for_each = local.common_tags
 
     content {
       key                 = tag.key

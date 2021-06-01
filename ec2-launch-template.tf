@@ -47,13 +47,13 @@ resource "aws_launch_template" "this" {
   tag_specifications {
     resource_type = "instance"
 
-    tags = merge(var.input_tags, {})
+    tags = local.common_tags
   }
 
   tag_specifications {
     resource_type = "volume"
 
-    tags = merge(var.input_tags, {})
+    tags = local.common_tags
   }
 
   user_data = var.user_data_base64
