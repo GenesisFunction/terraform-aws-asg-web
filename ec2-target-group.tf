@@ -1,9 +1,9 @@
 resource "random_id" "this" {
   keepers = {
-    name     = var.asg_name
-    port     = var.target_group_port
-    protocol = var.target_group_protocol
-    vpc_id   = var.vpc_id
+    name        = var.asg_name
+    port        = var.target_group_port
+    protocol    = var.target_group_protocol
+    vpc_id      = var.vpc_id
     target_type = "instance"
   }
   byte_length = 2

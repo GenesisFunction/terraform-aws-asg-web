@@ -97,11 +97,11 @@ variable "detailed_monitoring" {
   default     = false
 }
 
-variable "placement_tenancy" {
-  description = "default(shared) or dedicated tenancy"
-  type        = string
-  default     = "default"
-}
+# variable "placement_tenancy" {
+#   description = "default(shared) or dedicated tenancy"
+#   type        = string
+#   default     = "default"
+# }
 
 variable "cpu_credit_specification" {
   description = "Set cpu credit specification (standard or unlimited) - Default is unlimited"
@@ -121,17 +121,17 @@ variable "ebs_optimized" {
   default     = null
 }
 
-variable "root_block_device" {
-  description = "Map for settings of the root block device on the instance"
-  type        = map
-  default     = null
-}
+# variable "root_block_device" {
+#   description = "Map for settings of the root block device on the instance"
+#   type        = map(any)
+#   default     = null
+# }
 
-variable "ebs_block_device" {
-  description = "list of maps for each additional ebs block device"
-  type        = list(any)
-  default     = null
-}
+# variable "ebs_block_device" {
+#   description = "list of maps for each additional ebs block device"
+#   type        = list(any)
+#   default     = null
+# }
 
 variable "target_group_port" {
   description = "Port configuration for LB Target group"
