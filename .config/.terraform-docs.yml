@@ -1,3 +1,5 @@
+formatter: markdown table
+
 name: terraform-aws-asg-web
 
 content: |-
