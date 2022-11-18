@@ -25,7 +25,7 @@ resource "aws_lb_target_group" "this" {
     matcher  = var.target_group_health_response
   }
 
-  tags = merge(var.input_tags, {})
+  tags = local.common_tags
 
   lifecycle {
     create_before_destroy = true

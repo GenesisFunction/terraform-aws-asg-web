@@ -1,5 +1,5 @@
 locals {
-  asg_tags = merge(var.input_tags, {
+  asg_tags = merge(local.common_tags, {
     Name = var.asg_name
   })
 }
