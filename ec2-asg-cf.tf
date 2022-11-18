@@ -3,7 +3,7 @@
 resource "aws_cloudformation_stack" "this" {
   count = var.asg_cloudformation ? 1 : 0
 
-  name = var.asg_name
+  name          = var.asg_name
   template_body = <<EOF
 {
   "Resources": {
@@ -35,7 +35,7 @@ resource "aws_cloudformation_stack" "this" {
           }
         ],
         "MinSize": "${var.asg_min}",
-        "Tags": ${jsonencode(null_resource.asg_tags.*.triggers)},
+        "Tags": ${jsonencode(null_resource.asg_tags[*].triggers)},
         "TerminationPolicies": [
           "OldestLaunchConfiguration",
           "OldestInstance",

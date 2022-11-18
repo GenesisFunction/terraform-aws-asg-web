@@ -55,6 +55,8 @@ resource "aws_launch_template" "this" {
 
     tags = local.common_tags
   }
-
+  metadata_options {
+    http_tokens = "required"
+  }
   user_data = var.user_data_base64
 }
