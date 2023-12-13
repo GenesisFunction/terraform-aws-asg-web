@@ -40,5 +40,5 @@ resource "aws_autoscaling_attachment" "this" {
   count = var.asg_cloudformation ? 0 : 1
 
   autoscaling_group_name = aws_autoscaling_group.this[0].id
-  alb_target_group_arn   = aws_lb_target_group.this.arn
+  lb_target_group_arn    = aws_lb_target_group.this.arn
 }
