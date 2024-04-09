@@ -1,8 +1,12 @@
+header-from: ./.config/header.md
+
 formatter: markdown table
 
 name: terraform-aws-asg-web
 
 content: |-
+ {{ .Header }}
+
   # terraform-aws-asg-web
   GitHub: [StratusGrid/terraform-aws-asg-web](https://github.com/StratusGrid/terraform-aws-asg-web)
 
@@ -65,6 +69,7 @@ content: |-
   Note, manual changes to the README will be overwritten when the documentation is updated. To update the documentation, run `terraform-docs -c .config/.terraform-docs.yml`
 sections:
   show:
+    - header
     - requirements
     - resources
     - inputs
