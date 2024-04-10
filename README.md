@@ -1,25 +1,36 @@
 <!-- BEGIN_TF_DOCS -->
-# terraform-aws-asg-web
-GitHub: [StratusGrid/terraform-aws-asg-web](https://github.com/StratusGrid/terraform-aws-asg-web)
+<p align="center">                                                                                                                                            
+                                                                                
+  <img src="https://github.com/StratusGrid/terraform-readme-template/blob/main/header/stratusgrid-logo-smaller.jpg?raw=true" />
+  <p align="center">                                                           
+    <a href="https://stratusgrid.com/book-a-consultation">Contact Us</a> |                  
+    <a href="https://stratusgrid.com/cloud-cost-optimization-dashboard">Stratusphere FinOps</a> |
+    <a href="https://stratusgrid.com">StratusGrid Home</a> |
+    <a href="https://stratusgrid.com/blog">Blog</a>
+  </p>                    
+</p>
 
-asg-web makes an auto-scaling group, and related scaling policies, as well as a target group which can be associated with a load balancer.
+ # terraform-aws-asg-web
+ GitHub: [StratusGrid/terraform-aws-asg-web](https://github.com/StratusGrid/terraform-aws-asg-web)
 
-This module has the ability to provision the ASG using a nested CloudFormation stack. This can be especially helpful if you want to do rolling AMI upgrades using an immutable application AMI (made with something like Packer for instance).
+ asg-web makes an auto-scaling group, and related scaling policies, as well as a target group which can be associated with a load balancer.
 
-TODO:
-- Handle additional EBS Volumes beyond the root volume
-- Support ephemeral volumes?
-- Handle spot instance selection?
-- Support elastic_gpu_specifications?
-- Support elastic_inference_accelerator?
-- Support overriding the default ebs volume size
-- License manager license associations?
-- Add support for lifecycle hooks
-- Auto-Scaling rules
+ This module has the ability to provision the ASG using a nested CloudFormation stack. This can be especially helpful if you want to do rolling AMI upgrades using an immutable application AMI (made with something like Packer for instance).
 
-## Example
-```hcl
-data "aws_ami" "my_ami" {
+ TODO:
+ - Handle additional EBS Volumes beyond the root volume
+ - Support ephemeral volumes?
+ - Handle spot instance selection?
+ - Support elastic_gpu_specifications?
+ - Support elastic_inference_accelerator?
+ - Support overriding the default ebs volume size
+ - License manager license associations?
+ - Add support for lifecycle hooks
+ - Auto-Scaling rules
+
+ ## Example
+ ```hcl
+ data "aws_ami" "my_ami" {
   most_recent = true
 
   filter {
@@ -67,40 +78,40 @@ module "asg-web" {
 
   input_tags = merge(local.common_tags, {})
 }
-```
-## StratusGrid Standards we assume
-- All resource names and name tags shall use `_` and not `-`s
-- The old naming standard for common files such as inputs, outputs, providers, etc was to prefix them with a `-`, this is no longer true as it's not POSIX compliant. Our pre-commit hooks will fail with this old standard.
-- StratusGrid generally follows the TerraForm standards outlined [here](https://www.terraform-best-practices.com/naming)
-## Repo Knowledge
-Repository for Module vmimport
-## Documentation
-This repo is self documenting via Terraform Docs, please see the note at the bottom.
-### `LICENSE`
-This is the standard Apache 2.0 License as defined [here](https://stratusgrid.atlassian.net/wiki/spaces/TK/pages/2121728017/StratusGrid+Terraform+Module+Requirements).
-### `outputs.tf`
-The StratusGrid standard for Terraform Outputs.
-### `README.md`
-It's this file! I'm always updated via TF Docs!
-### `tags.tf`
-The StratusGrid standard for provider/module level tagging. This file contains logic to always merge the repo URL.
-### `variables.tf`
-All variables related to this repo for all facets.
-One day this should be broken up into each file, maybe maybe not.
-### `versions.tf`
-This file contains the required providers and their versions. Providers need to be specified otherwise provider overrides can not be done.
-## Documentation of Misc Config Files
-This section is supposed to outline what the misc configuration files do and what is there purpose
-### `.config/.terraform-docs.yml`
-This file auto generates your `README.md` file.
-### `.github/workflows/pre-commit.yml`
-This file contains the instructions for Github workflows, in specific this file run pre-commit and will allow the PR to pass or fail. This is a safety check and extras for if pre-commit isn't run locally.
-### `examples/*`
-The files in here are used by `.config/terraform-docs.yml` for generating the `README.md`. All files must end in `.tfnot` so Terraform validate doesn't trip on them since they're purely example files.
-### `.gitignore`
-This is your gitignore, and contains a slew of default standards.
----
-## Requirements
+ ```
+ ## StratusGrid Standards we assume
+ - All resource names and name tags shall use `_` and not `-`s
+ - The old naming standard for common files such as inputs, outputs, providers, etc was to prefix them with a `-`, this is no longer true as it's not POSIX compliant. Our pre-commit hooks will fail with this old standard.
+ - StratusGrid generally follows the TerraForm standards outlined [here](https://www.terraform-best-practices.com/naming)
+ ## Repo Knowledge
+ Repository for Module vmimport
+ ## Documentation
+ This repo is self documenting via Terraform Docs, please see the note at the bottom.
+ ### `LICENSE`
+ This is the standard Apache 2.0 License as defined [here](https://stratusgrid.atlassian.net/wiki/spaces/TK/pages/2121728017/StratusGrid+Terraform+Module+Requirements).
+ ### `outputs.tf`
+ The StratusGrid standard for Terraform Outputs.
+ ### `README.md`
+ It's this file! I'm always updated via TF Docs!
+ ### `tags.tf`
+ The StratusGrid standard for provider/module level tagging. This file contains logic to always merge the repo URL.
+ ### `variables.tf`
+ All variables related to this repo for all facets.
+ One day this should be broken up into each file, maybe maybe not.
+ ### `versions.tf`
+ This file contains the required providers and their versions. Providers need to be specified otherwise provider overrides can not be done.
+ ## Documentation of Misc Config Files
+ This section is supposed to outline what the misc configuration files do and what is there purpose
+ ### `.config/.terraform-docs.yml`
+ This file auto generates your `README.md` file.
+ ### `.github/workflows/pre-commit.yml`
+ This file contains the instructions for Github workflows, in specific this file run pre-commit and will allow the PR to pass or fail. This is a safety check and extras for if pre-commit isn't run locally.
+ ### `examples/*`
+ The files in here are used by `.config/terraform-docs.yml` for generating the `README.md`. All files must end in `.tfnot` so Terraform validate doesn't trip on them since they're purely example files.
+ ### `.gitignore`
+ This is your gitignore, and contains a slew of default standards.
+ ---
+ ## Requirements
 
 | Name | Version |
 |------|---------|
@@ -108,7 +119,7 @@ This is your gitignore, and contains a slew of default standards.
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 4.9 |
 | <a name="requirement_null"></a> [null](#requirement\_null) | 3.2.0 |
 | <a name="requirement_random"></a> [random](#requirement\_random) | 3.4.3 |
-## Resources
+ ## Resources
 
 | Name | Type |
 |------|------|
@@ -121,7 +132,7 @@ This is your gitignore, and contains a slew of default standards.
 | [aws_placement_group.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/placement_group) | resource |
 | [null_resource.asg_tags](https://registry.terraform.io/providers/hashicorp/null/3.2.0/docs/resources/resource) | resource |
 | [random_id.this](https://registry.terraform.io/providers/hashicorp/random/3.4.3/docs/resources/id) | resource |
-## Inputs
+ ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
@@ -150,13 +161,13 @@ This is your gitignore, and contains a slew of default standards.
 | <a name="input_target_group_protocol"></a> [target\_group\_protocol](#input\_target\_group\_protocol) | Protocol configuration for LB Target group | `string` | `"HTTPS"` | no |
 | <a name="input_user_data_base64"></a> [user\_data\_base64](#input\_user\_data\_base64) | User data for instances in base64 format | `string` | `null` | no |
 | <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | ID of VPC which the resource should be created in | `string` | n/a | yes |
-## Outputs
+ ## Outputs
 
 | Name | Description |
 |------|-------------|
 | <a name="output_asg_tags"></a> [asg\_tags](#output\_asg\_tags) | ID of target group created by module |
 | <a name="output_asg_tags_json"></a> [asg\_tags\_json](#output\_asg\_tags\_json) | ID of target group created by module |
 | <a name="output_asg_target_group_id"></a> [asg\_target\_group\_id](#output\_asg\_target\_group\_id) | ID of target group created by module |
----
-Note, manual changes to the README will be overwritten when the documentation is updated. To update the documentation, run `terraform-docs -c .config/.terraform-docs.yml`
+ ---
+ Note, manual changes to the README will be overwritten when the documentation is updated. To update the documentation, run `terraform-docs -c .config/.terraform-docs.yml`
 <!-- END_TF_DOCS -->
